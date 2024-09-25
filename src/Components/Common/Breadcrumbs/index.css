@@ -1,0 +1,42 @@
+.pdr-5 {
+    padding-right: 5px !important;
+}
+
+.pdl-5 {
+    padding-left: 5px !important;
+}
+
+.breadcrumb-not-active {
+    color: #cccccc;
+}
+
+.breadcrumb-active {
+    color: #000000;
+}
+
+.breadcrumbs {
+    display: flex !important;
+    padding-left: 10px;
+    height: 40px;
+    justify-content: flex-start;
+    font-size: 0.85rem !important;
+    padding: 10px !important;
+    cursor: default;
+    /* border-bottom: 1px solid #CCC; */
+}
+
+.activeLink {
+    cursor: pointer !important;
+    color: #5A5C60;
+;
+
+}
+
+.bread-menu {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.icons {
+    fill: #0288ae !important;
+}
