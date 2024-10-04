@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import Breadcrumbs from '../Common/Breadcrumbs';
 import SidebarView from '../Sidebar';
+import SideMenuBar from '../Sidebar/SideMenuBar';
 
 const Layout = ({ children }) => {
 
@@ -15,7 +16,8 @@ const Layout = ({ children }) => {
         <div className='app-main'>
             <div className="d-flex">
                 <div className="app-sidebar col-md-3  d-none d-md-block p-3">
-                    <SidebarView />
+                    {/* <SidebarView /> */}
+                    <SideMenuBar />
                 </div>
                 <div className="col-md-9 border-start border-light-subtle">
                     {
