@@ -1,5 +1,6 @@
 import React, { Fragment, memo } from 'react';
 import { useNavigate } from "react-router-dom";
+import ProfileImage from '../Common/ProfileImage/ProfileImage';
 import classNames from 'classnames';
 import AvatarImg from "../../Assets/Images/avatar.png";
 
@@ -12,7 +13,7 @@ const MemberElements = ({ members }) => {
             members.map((list, index) => {
                 return (<div key={`members-${index}`} className={classNames("member-card-item d-flex align-items-center p-4 flex-column bg-info-subtle gap-2 rounded", { "bg-warning-subtle": !list?.isActive })}>
                     <div className="border border-primary rounded-circle position-relative m-1">
-                        <img src={AvatarImg} className="rounded-circle profile-img" alt="..." />
+                        <ProfileImage source={AvatarImg} />
                         <span className={classNames("position-absolute bottom-0 end-0 border border-light rounded-circle bg-success p-1", { 'bg-warning': !list?.isActive })}></span>
                     </div>
                     <div className="fw-semibold">{list?.name}</div>

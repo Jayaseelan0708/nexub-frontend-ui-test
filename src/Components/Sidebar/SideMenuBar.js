@@ -19,8 +19,8 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import GroupIcon from '@mui/icons-material/Group';
 
 import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
-import { treeItemClasses } from '@mui/x-tree-view/TreeItem';
 import { useTreeItem2 } from '@mui/x-tree-view/useTreeItem2';
+import { treeItemClasses } from '@mui/x-tree-view/TreeItem';
 import {
     TreeItem2Checkbox,
     TreeItem2Content,
@@ -31,8 +31,9 @@ import {
 import { TreeItem2Icon } from '@mui/x-tree-view/TreeItem2Icon';
 import { TreeItem2Provider } from '@mui/x-tree-view/TreeItem2Provider';
 import { TreeItem2DragAndDropOverlay } from '@mui/x-tree-view/TreeItem2DragAndDropOverlay';
+import { makeStyles } from '@mui/styles';
 
-const ITEMS = [
+const MENU_LIST = [
     { id: 'dashboard', label: 'Dashboard', fileType: 'dashboard' },
     { id: 'members', label: 'Project Members', fileType: 'group' },
     {
@@ -86,6 +87,25 @@ function DotIcon() {
     );
 }
 
+const useStyles = makeStyles({
+    scrollbar: {
+        overflow: "auto",
+        scrollbarWidth: 'thin',
+        '&::-webkit-scrollbar': {
+            width: '0.1em',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: "#f1f1f1",
+        },
+        '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#888',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            background: '#555'
+        }
+    }
+})
+
 const StyledTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
     color: theme.palette.grey[400],
     position: 'relative',
@@ -98,7 +118,7 @@ const StyledTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
             top: 40,
             bottom: 5,
             left: 20,
-            borderLeft: `1px solid ${alpha(theme.palette.grey[600], 0.4)}`, // Border to simulate the left border
+            borderLeft: `2px solid ${alpha(theme.palette.grey[800], 0.1)}`, // Border to simulate the left border
         },
 
     }),
@@ -106,7 +126,7 @@ const StyledTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
 
 const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
     flexDirection: 'row-reverse',
-    borderRadius: theme.spacing(0.7),
+    borderRadius: theme.spacing(0.5),
     marginBottom: theme.spacing(0.7),
     marginTop: theme.spacing(0.7),
     marginLeft: 0,
@@ -114,8 +134,27 @@ const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
     paddingRight: theme.spacing(1),
     fontWeight: 500,
     zIndex: 2,
+    marginLeft: '-12px',
+
+
+    
     
     [`&.Mui-expanded `]: {
+        // [`&.content.Mui-expanded`]:{
+        //     borderTopRightRadius: theme.spacing(5),
+        //     borderBottomRightRadius: theme.spacing(5),
+        //     backgroundColor: alpha(theme.palette.primary.main, 0.1),
+        //     // borderLeft: `2px solid ${alpha(theme.palette.primary.main, 1)}`,
+        //     color: '#5A5C60',
+        //     fontWeight: 'bolder',
+        //     ['.labelIcon']: {
+        //         backgroundColor: '#2695FB',
+        //         borderRadius: '50%',
+        //         color: theme.palette.primary.contrastText,
+        //     },
+        // },
+        
+
         '&:not(.Mui-focused, .Mui-selected, .Mui-selected.Mui-focused) .labelIcon': {
             color: theme.palette.primary.dark,
             ...theme.applyStyles('light', {
@@ -126,7 +165,7 @@ const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
             content: '""',
             display: 'block',
             position: 'absolute',
-            left: '16px',
+            // left: '16px',
             top: '44px',
             height: 'calc(100% - 48px)',
             width: '1.5px',
@@ -136,23 +175,41 @@ const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
             }),
             
         },
+
     },
     '&:hover': {
+        // borderRadius: theme.spacing(5),
+        borderTopRightRadius: theme.spacing(5),
+        borderBottomRightRadius: theme.spacing(5),
         backgroundColor: alpha(theme.palette.primary.main, 0.1),
-        color: 'white',
+        borderLeft: `2px solid ${alpha(theme.palette.primary.main, 1)}`,
+        color: '#2695FB',
+        fontWeight: 'bolder',
         ...theme.applyStyles('light', {
-            color: theme.palette.primary.main,
+            color: "#5A5C60",
+            
         }),
+
+        ['.labelIcon']: {
+            backgroundColor: '#2695FB',
+            borderRadius: '50%',
+            color: theme.palette.primary.contrastText,
+        }
     },
     [`&.Mui-focused, &.Mui-selected, &.Mui-selected.Mui-focused`]: {
+        // borderRadius: theme.spacing(5),
+        borderTopRightRadius: theme.spacing(5),
+        borderBottomRightRadius: theme.spacing(5),
         backgroundColor: theme.palette.grey[700],
         color: theme.palette.primary.main,
+        borderLeft: `2px solid ${alpha(theme.palette.primary.main, 1)}`,
+
         ...theme.applyStyles('light', {
             backgroundColor: alpha(theme.palette.grey[300]),
 
         }),
         ['.labelIcon']: {
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: '#2695FB',
             borderRadius: '50%',
             color: theme.palette.primary.contrastText,
         }
@@ -176,7 +233,7 @@ function TransitionComponent(props) {
 
 const StyledTreeItemLabelText = styled(Typography)({
     color: 'inherit',
-    fontFamily: 'General Sans',
+    fontFamily: 'Open Sans',
     fontWeight: 500,
     fontSize: '0.9rem',
 });
@@ -280,8 +337,17 @@ const CustomTreeItem = React.forwardRef(function CustomTreeItem(props, ref) {
                             'Mui-disabled': status.disabled,
                         }),
                     })}
+                    sx={{
+                        borderWidth: '1px solid #DFDFDF'
+                    }}
                 >
-                    <TreeItem2IconContainer {...getIconContainerProps()}>
+                    <TreeItem2IconContainer {...getIconContainerProps()}
+                        sx={{
+                            backgroundColor: '#2695FB',
+                            borderRadius: '50%',
+                            color: '#DFDFDF',
+                            fontSize: '0.6rem',
+                        }}>
                         <TreeItem2Icon status={status} />
                     </TreeItem2IconContainer>
                     <TreeItem2Checkbox {...getCheckboxProps()} />
@@ -299,6 +365,7 @@ const CustomTreeItem = React.forwardRef(function CustomTreeItem(props, ref) {
 // This is the root component of the Sidebar
 export default function SideMenuBar() {
 
+    const classes = useStyles();
     const navigate = useNavigate();
     const [activeMenu, setActiveMenu] = useState("dashboard");
 
@@ -320,10 +387,11 @@ export default function SideMenuBar() {
 
     return (
         <RichTreeView
-            items={ITEMS}
+            className={classes.scrollbar}
+            items={MENU_LIST}
             defaultExpandedItems={['dashboard']}
             defaultSelectedItems="dashboard"
-            sx={{ height: '100vh', flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
+            sx={{ height: '100vh', flexGrow: 1, maxWidth: 400, overflowY: 'auto', paddingLeft: '12px' }}
             slots={{ item: CustomTreeItem }}
             onItemClick={(event, itemId) => handleClickMenu(itemId)}
         />

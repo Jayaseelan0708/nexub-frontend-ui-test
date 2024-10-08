@@ -3,6 +3,7 @@ import { Button, Offcanvas } from 'react-bootstrap';
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import SidebarView from '../Sidebar';
+import SideMenuBar from '../Sidebar/SideMenuBar';
 
 function MyOffCanvas() {
   const [show, setShow] = useState(false);
@@ -25,7 +26,7 @@ function MyOffCanvas() {
           </div>
         </Offcanvas.Title>
       </Offcanvas.Header>
-      <SidebarView />
+      <SideMenuBar />
     </Offcanvas>
   </Fragment>
   );
