@@ -1,5 +1,6 @@
 import React, { Fragment, memo } from "react";
 import AvatarImg from '../../Assets/Images/avatar.png';
+import ProfileImage from '../Common/ProfileImage/ProfileImage'
 import { IcnEdit, IcnStar } from "../../Assets/Icons";
 
 const Ratings = ({ }) => {
@@ -12,7 +13,7 @@ const Ratings = ({ }) => {
             </div>
             <div className="d-flex justify-content-center align-items-center gap-1">
                 <div className="">
-                    <img src={AvatarImg} className="rounded-circle profile-img" alt="..." />
+                    <ProfileImage source={AvatarImg} />
                 </div>
                 <div className="">
                     <div className="fw-medium">
