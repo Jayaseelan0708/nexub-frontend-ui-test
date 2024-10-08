@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     const location = useLocation();
 
     return (<div className='app-container'>
-        <div className='app-header d-flex justify-content-between align-items-center px-3 py-2'>
+        <div className='app-header d-flex justify-content-between align-items-center px-3 py-2 sticky-top'>
             <Header />
         </div>
         <div className='app-main'>
@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
                         </div>
                     }
 
-                    <div className='pb-3'>
+                    <div className='scrollBar'>
                         {children}
                     </div>
                 </div>

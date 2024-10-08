@@ -5,6 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-y: hidden;
   }
   
   code {
@@ -54,8 +55,35 @@ body {
     opacity: 0.5 !important;
 }
 
-/* Drop Down Custom css */
+.scrollBar{
+    overflow-y: scroll !important;
+    height: 100vh !important;
+    padding-bottom: 100px;
+}
 
+/* Custom Scrollbar using CSS */
+.scrollBar {
+    overflow-y: scroll;
+  }
+  
+  /* scrollbar width */
+  .scrollBar::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* scrollbar track */
+  .scrollBar::-webkit-scrollbar-track {
+    background: #eee;
+  }
+  
+  /* scrollbar handle */
+  .scrollBar::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: #00d2ff;
+    background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+  }
+
+/* Drop Down Custom css */
 .userProfile-menu {
     width: 9px !important;
     height: 18px !important;
